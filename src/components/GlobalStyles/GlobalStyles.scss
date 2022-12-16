@@ -9,6 +9,7 @@
     --default-layout-header-height: 60px;
     --default-layout-width: 1150px;
     --default-layout-horizontal-spacer: 24px;
+    --font-family: 'ProximaNova', sans-serif;
 }
 
 * {
@@ -48,10 +49,11 @@ html {
 
 body {
     font-size: 1.6rem;
-    font-family: 'ProximaNova', sans-serif;
+    font-family: var(--font-family);
     line-height: 1.5;
     text-rendering: optimizeSpeed;
     color: var(--text-color);
+    overflow-y: overlay;
 }
 
 button,
@@ -61,7 +63,7 @@ input,
     outline: none;
 }
 
-a[href] {
+a {
     color: var(--text-color);
     text-decoration: none;
 }
@@ -86,4 +88,20 @@ body {
     .tippy-content {
         padding: 8px 9px;
     }
+}
+
+//Scrollbar CSS
+html *::-webkit-scrollbar {
+    border-radius: 0;
+    width: 8px;
+}
+
+html *::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(22, 24, 35, 0.06);
+}
+
+html *::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
 }

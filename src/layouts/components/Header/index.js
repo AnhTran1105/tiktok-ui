@@ -1,8 +1,9 @@
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss'
+import config from '~/config'
 import images from '~/assets/images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
+import {
     faCircleQuestion,
     faCoins,
     faEarthAsia,
@@ -12,7 +13,7 @@ import {
     faSignOut,
     faUser,
     faCircleXmark,
-    faSpinner, 
+    faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
 import Button from '~/components/Button';
@@ -24,6 +25,7 @@ import Search from '../Search';
 import { useState, useEffect } from 'react';
 import AccountItem from '~/components/AccountItem';
 import { Wrapper as PopperWrapper } from '~/components/Popper'
+import { Link } from 'react-router-dom';
 
 
 
@@ -51,11 +53,47 @@ const MENU_ITEMS = [
                 },
                 {
                     code: 'it',
-                    title: 'Italian'
+                    title: 'Italia'
                 },
                 {
                     code: 'ja',
                     title: 'Japanese'
+                },
+                {
+                    code: 'ko',
+                    title: 'Korean'
+                },
+                {
+                    code: 'vi',
+                    title: 'Tiếng Việt'
+                },
+                {
+                    code: 'de',
+                    title: 'Germany'
+                },
+                {
+                    code: 'ru',
+                    title: 'Russian'
+                },
+                {
+                    code: 'th',
+                    title: 'Thailand'
+                },
+                {
+                    code: 'zh',
+                    title: 'Chinese'
+                },
+                {
+                    code: 'hu',
+                    title: 'Hungarian'
+                },
+                {
+                    code: 'id',
+                    title: 'Indonesian'
+                },
+                {
+                    code: 'be',
+                    title: 'Belarus'
                 }
             ]
         }
@@ -76,10 +114,10 @@ function Header() {
     const [searchResult, setSearchResult] = useState([]);
     useEffect(() => {
         setTimeout(() => {
-            setSearchResult([1,2,3,4])
+            setSearchResult([1, 2, 3, 4])
         }, 0)
     }, []);
-    
+
 
     const handleMenuChange = (MenuItem) => {
         switch (MenuItem.type) {
@@ -106,7 +144,7 @@ function Header() {
             title: 'Settings',
             to: '/settings'
         },
-        
+
         ...MENU_ITEMS,
         {
             icon: <FontAwesomeIcon icon={faSignOut} />,
@@ -119,7 +157,7 @@ function Header() {
     return <header className={cx('wrapper')} >
         <div className={cx('inner')}>
             <div className={cx('logo')}>
-                <img src={images.logo} alt="Tiktok" />
+                <Link to={config.routes.home} className={cx('logo-link')}><img src={images.logo} alt="Tiktok" /></Link>
             </div>
 
             <Search
